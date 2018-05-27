@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Alert;
 
 class TarifController extends Controller
 {
@@ -24,6 +25,7 @@ class TarifController extends Controller
   $tarif->tarifperkwh = $r->tarifperkwh;
   $tarif->save();
 
+  Alert::success('Berhasil menambahkan data Tarif baru.', 'Success!');
   return redirect(url('tarif'));
 }
 
@@ -40,6 +42,8 @@ public function update(Request $request)
   $b->daya = $request->daya;
   $b->tarifperkwh = $request->tarifperkwh;      
   $b->save();
+
+  Alert::info('Berhasil mengubah data Tarif.', 'Success!');
   return redirect(url('tarif'));
 }
 
@@ -48,6 +52,7 @@ public function delete($id)
   $tarif = \App\Tarif::find($id);
   $tarif->delete();
 
+  Alert::success('Berhasil menghapus data Tarif.', 'Success!');
   return redirect('tarif');
 }
 

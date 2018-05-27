@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Pelanggan;
 use \App\Penggunaan;
 use \App\Tarif;
+use Alert;
 
 class PelangganController extends Controller
 {
@@ -24,6 +25,8 @@ class PelangganController extends Controller
     	$pel->alamat = $r->input('alamat');
     	$pel->kodetarif = $r->input('kodetarif');
     	$pel->save();
+
+        Alert::success('Berhasil menambah data Pelanggan.', 'Success!');
     	return redirect(url('pelanggan'));
     }
     public function edit($id){
@@ -38,11 +41,15 @@ class PelangganController extends Controller
     	$pel->alamat = $r->input('alamat');
     	$pel->kodetarif = $r->input('kodetarif');
     	$pel->save();
+
+        Alert::info('Berhasil mengubah data Pelanggan.', 'Success!');
     	return redirect(url('pelanggan'));
     }
     public function delete($id){
     	$pel = Pelanggan::find($id);
     	$pel->delete();
+
+        Alert::success('Berhasil menghapus data Pelanggan.', 'Success!');
     	return redirect(url('pelanggan'));
     }
 }

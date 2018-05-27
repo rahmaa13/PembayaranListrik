@@ -28,6 +28,7 @@ class PenggunaanController extends Controller
 		$penggunaan->meterakhir = $r->input('meterakhir');
 		$penggunaan->save();
 
+		Alert::success('Berhasil menambah data Penggunaan.', 'Success!');
 		return redirect(url('penggunaan'));
 	}
 
@@ -46,6 +47,8 @@ class PenggunaanController extends Controller
 		$penggunaan->meterawal = $r->meterawal;
 		$penggunaan->meterakhir = $r->meterakhir;
     	$penggunaan->save();
+
+    	Alert::info('Berhasil mengubah data Penggunaan.', 'Success!');
     	return redirect(url('penggunaan'));
 	}
 
@@ -53,6 +56,8 @@ class PenggunaanController extends Controller
 	{
 		$penggunaan = Penggunaan::find($id);
     	$penggunaan->delete();
+
+    	Alert::success('Berhasil menghapus data Penggunaan.', 'Success!');
     	return redirect(url('penggunaan'));
 	}
 }

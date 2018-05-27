@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Tagihan;
 use \App\Pelanggan;
 use \App\Penggunaan;
+use Alert;
 
 class TagihanPLOController extends Controller
 {
@@ -35,6 +36,8 @@ class TagihanPLOController extends Controller
     	$tagihan->jumlahmeter = $hasil;
     	$tagihan->status = $r->input('status');
     	$tagihan->save();
+
+        Alert::success('Berhasil menambah data Tagihan.', 'Success!');
     	return redirect(url('tagihan'));
     }
 
@@ -48,12 +51,16 @@ class TagihanPLOController extends Controller
     	$tagihan->jumlahmeter = $pelanggan1 - $pelanggan2;
     	$tagihan->status = $r->input('status');
     	$tagihan->save();
+
+        Alert::info('Berhasil mengubah data Tagihan.', 'Success!');
     	return redirect(url('tagihan'));
     }
 
     public function delete($id){
     	$tagihan = Tagihan::find($id);
     	$tagihan->delete();
+
+        Alert::success('Berhasil menghapus data Tagihan.', 'Success!');
     	return redirect(url('tagihan'));
     }
 

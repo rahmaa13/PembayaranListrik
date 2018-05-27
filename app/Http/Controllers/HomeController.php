@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\User;
+use Alert;
 
 class HomeController extends Controller
 {
@@ -46,6 +47,8 @@ class HomeController extends Controller
         $user->email = $r->input('email');
         $user->password = bcrypt($r->input('password'));
         $user->save();
+
+        Alert::success('Berhasil menambah data User.', 'Success!');
         return redirect(url('user'));
     }
 
@@ -61,12 +64,16 @@ class HomeController extends Controller
         $user->email = $r->input('email');
         $user->password = bcrypt($r->input('password'));
         $user->save();
+
+        Alert::info('Berhasil mengubah data User.', 'Success!');
         return redirect(url('user'));
     }
 
     public function delete($id){
         $user = User::find($id);
         $user->delete();
+
+        Alert::success('Berhasil menghapus data User.', 'Success!');
         return redirect(url('user'));
     }
 }

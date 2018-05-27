@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Pelanggan;
 use \App\Tarif;
 use \App\Tagihan;
+use Alert;
 
 class PembayaranController extends Controller
 {
@@ -34,12 +35,15 @@ class PembayaranController extends Controller
 		$pembayaran->biayaadmin = $r->biayaadmin;
 		$pembayaran->save();
 
+		Alert::success('Berhasil menambah data Pembayaran.', 'Success!');
 		return redirect(url('pembayaran'));
 	}
 
 	public function delete($id){
 		$bayar = \App\Pembayaran::find($id);
 		$bayar->delete();
+
+		Alert::success('Berhasil menghapus data Pembayaran.', 'Success!');
 		return redirect(url('pembayaran'));		
 	}
 }
