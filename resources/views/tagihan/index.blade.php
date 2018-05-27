@@ -46,7 +46,7 @@
         $nama = \App\Pelanggan::whereId($r->id_pelanggan)->value('nama');
         ?>
         <tr>
-            <td style="text-align: center;">{{$key->id}}</td>
+            <td style="text-align: center;">{{$r->id}}</td>
             <td style="text-align: center;">{{$nama}}</td>
             <td style="text-align: center;">{{$r->bulan}}</td>
             <td style="text-align: center;">{{$r->tahun}}</td>

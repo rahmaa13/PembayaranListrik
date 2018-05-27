@@ -25,6 +25,10 @@ Route::group(['prefix' => 'tarif'] , function(){
 	Route::get('/edit/{id}','TarifController@edit')->name('edit_tarif');
 	Route::post('update','TarifController@update');
 	Route::get('delete/{id}','TarifController@delete');
+
+Route::get('downloadExcel/{type}', 'TarifController@downloadExcel');
+
+Route::post('importExcel', 'TarifController@importExcel');
 });
 
 Route::group(['prefix' => 'user'] , function(){

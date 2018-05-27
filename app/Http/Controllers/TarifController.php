@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Alert;
+use DB;
+use Excel;
 
 class TarifController extends Controller
 {
@@ -55,5 +57,41 @@ public function delete($id)
   Alert::success('Berhasil menghapus data Tarif.', 'Success!');
   return redirect('tarif');
 }
+
+  public function importExcel()
+
+  {
+
+    if(Input::hasFile('import_file')){
+
+      $path = Tarif::file('import_file')->getRealPath();
+
+      $data = Excel::load($path, function($reader) {
+
+      })->get();
+
+      if(!empty($data) && $data->count()){
+
+        foreach ($data as $key => $value) {
+
+          $insert[] = ['kodetarif' => $value->kodetarif, 'daya' => $value->daya, 'tarifperkwh' => $value->tarifperkwh];
+
+        }
+
+        if(!empty($insert)){
+
+          DB::table('tarifs')->insert($insert);
+
+          dd('Insert Record successfully.');
+
+        }
+
+      }
+
+    }
+
+    return back();
+
+  }
 
 }

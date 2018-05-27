@@ -24,7 +24,17 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function welcome(){
-        return view('welcome');
+        $total = \App\Tagihan::count();
+        $lunas = \App\Tagihan::where('status', 2)->count();
+        $data['selesaitagihan'] = \App\Tagihan::where('status', 2)->count();
+        $data['getpelanggan'] = \App\Pelanggan::paginate(5);
+        if ($total >= 1) {
+            $data['presentase']    = ($lunas / $total) * 100;
+        }
+        else {
+            $data['presentase']    = 0;
+        }
+        return view('welcome')->with($data);
     }
     
     public function index()
