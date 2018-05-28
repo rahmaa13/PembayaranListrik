@@ -12,7 +12,9 @@ class PembayaranController extends Controller
 {
 	public function index(){
 		$pembayaran  = \App\Pembayaran::all();
-		return view('pembayaran.index')->with('pembayaran', $pembayaran);
+		$tarif = \App\Tarif::get();
+		$pelanggan = \App\Pelanggan::get();
+		return view('pembayaran.index')->with(['pembayaran' => $pembayaran, 'tarif' => $tarif, 'pelanggan' => $pelanggan]);
 	}
 
 	public function add($id){

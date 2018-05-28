@@ -12,7 +12,9 @@ class TagihanPLOController extends Controller
 {
     public function index(){
     	$tagihan = Tagihan::all();
-    	return view('tagihan.index')->with('tagihan',$tagihan);
+        $pelanggan = Pelanggan::all();
+        $tarif = \App\Tarif::get();
+    	return view('tagihan.index')->with(['tagihan' => $tagihan, 'tarif' => $tarif, 'pelanggan' => $pelanggan]);
     }
 
     public function add(){

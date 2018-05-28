@@ -14,10 +14,6 @@ class TarifController extends Controller
    return view('tarif.index', ['tarif' => $tarif]); 
  }
 
- public function add(){
-   return view('tarif.add');
- }
-
  public function save(Request $r)
  {
   $tarif =  new \App\Tarif;

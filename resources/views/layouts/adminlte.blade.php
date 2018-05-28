@@ -14,13 +14,14 @@
 <!-- Theme style -->
 <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
-<link rel="stylesheet" type="text/css" href=" {{asset('css/bootstrap.min.css')}} ">
-<link rel="stylesheet" type="text/css" href="{{asset('sweetalert/sweetalert.css')}}">
+	folder instead of downloading all of them to reduce the load. -->
+	<link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
+	<link rel="stylesheet" type="text/css" href=" {{asset('css/bootstrap.min.css')}} ">
+	<link rel="stylesheet" type="text/css" href="{{asset('sweetalert/sweetalert.css')}}">
 
 
-<script type="text/javascript" href=" {{asset('js/jquery-3.2.1.min.js')}} "></script>
-<script type="text/javascript" src="{{asset('js/datatable/dataTables.bootstrap.min.js')}}"></script>
-<script src="{{asset('sweetalert/sweetalert.min.js')}}"></script>
-@include('sweet::alert')
+	<script type="text/javascript" href=" {{asset('js/jquery-3.2.1.min.js')}} "></script>
+	<script type="text/javascript" src="{{asset('js/datatable/dataTables.bootstrap.min.js')}}"></script>
+	<script src="{{asset('sweetalert/sweetalert.min.js')}}"></script>
+	@include('sweet::alert')
+	@include('modals')

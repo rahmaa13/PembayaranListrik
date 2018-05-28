@@ -26,7 +26,7 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <a href="{{url('tagihan/add')}}" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;Tambah Tagihan</a>
+                            <button style="margin-bottom: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-addTagihan"><i class="fa fa-plus-square"></i>&nbsp;Tambah Tagihan</button>
                             <div class="table-responsive">
                                 <table id="example" class="table table-bordered table-hover" role="grid" aria-describedby="example1_info" data>
                                     <thead>

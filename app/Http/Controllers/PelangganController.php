@@ -12,12 +12,15 @@ class PelangganController extends Controller
 {
     public function index(){
     	$pel = Pelanggan::paginate(10);
-    	return view('pelanggan.index')->with('pel',$pel);
+        $pelanggan = Pelanggan::all();
+        $gettarif = Tarif::all();
+    	return view('pelanggan.index')->with([
+            'pel' => $pel,
+            'tarif' => $gettarif,
+            'pelanggan' => $pelanggan
+        ]);
     }
-    public function add(){
-    	$gettarif = Tarif::all();
-    	return view('pelanggan.add')->with('tarif',$gettarif);
-    }
+    
     public function save(Request $r){
     	$pel = new Pelanggan;
     	$pel->nometer = $r->input('nometer');

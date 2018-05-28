@@ -26,8 +26,8 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <a href="{{url('tarif/add')}}" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;Tambah Tarif</a><br><br>
                             <div class="table-responsive">
+                                <button style="margin-bottom: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-addTarif"><i class="fa fa-plus-square"></i>&nbsp;Tambah Tarif</button>
                                 <table id="example" class="table table-bordered table-hover" role="grid" aria-describedby="example1_info" data>
                                     <thead>
                                         <tr>

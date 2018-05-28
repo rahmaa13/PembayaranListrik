@@ -6,19 +6,17 @@ use Illuminate\Http\Request;
 use App\Penggunaan;
 use App\Pelanggan;
 use Alert;
+use App\Tarif;
 
 class PenggunaanController extends Controller
 {
    public function index(){
 		$penggunaan  = Penggunaan::all();
 		$pelanggan  = Pelanggan::all();
-		return view('penggunaan.index', ['penggunaan' => $penggunaan, 'pelanggan' => $pelanggan]);
+		$getTarif = Tarif::all();
+		return view('penggunaan.index', ['penggunaan' => $penggunaan, 'pelanggan' => $pelanggan, 'tarif' => $getTarif]);
 	}
-	public function add()
-	{
-		$pelanggan = Pelanggan::all();
-		return view('penggunaan.add')->with('pelanggan',$pelanggan);
-	}
+	
 	public function save(Request $r)
 	{
 		$penggunaan =  new Penggunaan;

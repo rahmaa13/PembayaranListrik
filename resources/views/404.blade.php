@@ -3,26 +3,26 @@
 <head>
   <title></title>
   <style type="text/css">
-    body, html {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+  body, html {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
-canvas {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:#000;
-  cursor: pointer;
-}
-  </style>
+  canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:#000;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-                <canvas></canvas>
+  <canvas></canvas>
 <!-- 
                   ,--.    ,--.
                  ((O ))--((O ))
@@ -52,19 +52,19 @@ canvas {
                (_______)(_______)
               |        ||        |
               '--------''--------'
--->
-<script type="text/javascript">
-  {
-  class Robot {
-    constructor(color, light, size, x, y, struct) {
-      this.x = x;
-      this.points = [];
-      this.links = [];
-      this.frame = 0;
-      this.dir = 1;
-      this.size = size;
-      this.color = Math.round(color);
-      this.light = light;
+            -->
+            <script type="text/javascript">
+              {
+                class Robot {
+                  constructor(color, light, size, x, y, struct) {
+                    this.x = x;
+                    this.points = [];
+                    this.links = [];
+                    this.frame = 0;
+                    this.dir = 1;
+                    this.size = size;
+                    this.color = Math.round(color);
+                    this.light = light;
       // ---- create points ----
       for (const p of struct.points) {
         this.points.push(new Robot.Point(size * p.x + x, size * p.y + y, p.f));
@@ -85,8 +85,8 @@ canvas {
             link.lum,
             link.force,
             link.disk
-          )
-        );
+            )
+          );
       }
     }
     update() {
@@ -96,22 +96,22 @@ canvas {
         this === dancerDrag &&
         this.size < 16 &&
         this.frame > 600
-      ) {
+        ) {
         dancerDrag = null;
-        dancers.push(
-          new Robot(
-            this.color + 90,
-            this.light * 1.25,
-            this.size * 2,
-            pointer.x,
-            pointer.y - 100 * this.size * 2,
-            struct
+      dancers.push(
+        new Robot(
+          this.color + 90,
+          this.light * 1.25,
+          this.size * 2,
+          pointer.x,
+          pointer.y - 100 * this.size * 2,
+          struct
           )
         );
-        dancers.sort(function(d0, d1) {
-          return d0.size - d1.size;
-        });
-      }
+      dancers.sort(function(d0, d1) {
+        return d0.size - d1.size;
+      });
+    }
       // ---- update links ----
       for (const link of this.links) {
         const p0 = link.p0;
@@ -184,7 +184,7 @@ canvas {
             -link.size * 0.5,
             d + link.size,
             link.size
-          );
+            );
           ctx.restore();
           // ---- stroke ----
           ctx.save();
@@ -196,7 +196,7 @@ canvas {
             -link.size * 0.5,
             d + link.size,
             link.size
-          );
+            );
           ctx.restore();
         }
       }
@@ -240,7 +240,7 @@ canvas {
       this.image = stroke(
         "hsl(" + parent.color + " ,30%, " + parent.light * this.light + "%)",
         true
-      );
+        );
       this.shadow = stroke("rgba(0,0,0,0.5)");
     }
   };
@@ -305,7 +305,7 @@ canvas {
     },
     move(e) {
       let touchMode = e.targetTouches,
-        pointer;
+      pointer;
       if (touchMode) {
         e.preventDefault();
         pointer = touchMode[0];
@@ -336,105 +336,105 @@ canvas {
   // ---- robot structure ----
   const struct = {
     points: [
-      {
-        x: 0,
-        y: -4,
-        f(s, d) {
-          this.y -= 0.01 * s;
-        }
-      },
-      {
-        x: 0,
-        y: -16,
-        f(s, d) {
-          this.y -= 0.02 * s * d;
-        }
-      },
-      {
-        x: 0,
-        y: 12,
-        f(s, d) {
-          this.y += 0.02 * s * d;
-        }
-      },
-      { x: -12, y: 0 },
-      { x: 12, y: 0 },
-      {
-        x: -3,
-        y: 34,
-        f(s, d) {
-          if (d > 0) {
-            this.x += 0.01 * s;
-            this.y -= 0.015 * s;
-          } else {
-            this.y += 0.02 * s;
-          }
-        }
-      },
-      {
-        x: 3,
-        y: 34,
-        f(s, d) {
-          if (d > 0) {
-            this.y += 0.02 * s;
-          } else {
-            this.x -= 0.01 * s;
-            this.y -= 0.015 * s;
-          }
-        }
-      },
-      {
-        x: -28,
-        y: 0,
-        f(s, d) {
-          this.x += this.vx * 0.025;
-          this.y -= 0.001 * s;
-        }
-      },
-      {
-        x: 28,
-        y: 0,
-        f(s, d) {
-          this.x += this.vx * 0.025;
-          this.y -= 0.001 * s;
-        }
-      },
-      {
-        x: -3,
-        y: 64,
-        f(s, d) {
-          this.y += 0.015 * s;
-          if (d > 0) {
-            this.y -= 0.01 * s;
-          } else {
-            this.y += 0.05 * s;
-          }
-        }
-      },
-      {
-        x: 3,
-        y: 64,
-        f(s, d) {
-          this.y += 0.015 * s;
-          if (d > 0) {
-            this.y += 0.05 * s;
-          } else {
-            this.y -= 0.01 * s;
-          }
+    {
+      x: 0,
+      y: -4,
+      f(s, d) {
+        this.y -= 0.01 * s;
+      }
+    },
+    {
+      x: 0,
+      y: -16,
+      f(s, d) {
+        this.y -= 0.02 * s * d;
+      }
+    },
+    {
+      x: 0,
+      y: 12,
+      f(s, d) {
+        this.y += 0.02 * s * d;
+      }
+    },
+    { x: -12, y: 0 },
+    { x: 12, y: 0 },
+    {
+      x: -3,
+      y: 34,
+      f(s, d) {
+        if (d > 0) {
+          this.x += 0.01 * s;
+          this.y -= 0.015 * s;
+        } else {
+          this.y += 0.02 * s;
         }
       }
+    },
+    {
+      x: 3,
+      y: 34,
+      f(s, d) {
+        if (d > 0) {
+          this.y += 0.02 * s;
+        } else {
+          this.x -= 0.01 * s;
+          this.y -= 0.015 * s;
+        }
+      }
+    },
+    {
+      x: -28,
+      y: 0,
+      f(s, d) {
+        this.x += this.vx * 0.025;
+        this.y -= 0.001 * s;
+      }
+    },
+    {
+      x: 28,
+      y: 0,
+      f(s, d) {
+        this.x += this.vx * 0.025;
+        this.y -= 0.001 * s;
+      }
+    },
+    {
+      x: -3,
+      y: 64,
+      f(s, d) {
+        this.y += 0.015 * s;
+        if (d > 0) {
+          this.y -= 0.01 * s;
+        } else {
+          this.y += 0.05 * s;
+        }
+      }
+    },
+    {
+      x: 3,
+      y: 64,
+      f(s, d) {
+        this.y += 0.015 * s;
+        if (d > 0) {
+          this.y += 0.05 * s;
+        } else {
+          this.y -= 0.01 * s;
+        }
+      }
+    }
     ],
     links: [
-      { p0: 3, p1: 7, size: 12, lum: 0.5 },
-      { p0: 1, p1: 3, size: 24, lum: 0.5 },
-      { p0: 1, p1: 0, size: 60, lum: 0.5, disk: 1 },
-      { p0: 5, p1: 9, size: 16, lum: 0.5 },
-      { p0: 2, p1: 5, size: 32, lum: 0.5 },
-      { p0: 1, p1: 2, size: 50, lum: 1 },
-      { p0: 6, p1: 10, size: 16, lum: 1.5 },
-      { p0: 2, p1: 6, size: 32, lum: 1.5 },
-      { p0: 4, p1: 8, size: 12, lum: 1.5 },
-      { p0: 1, p1: 4, size: 24, lum: 1.5 }
+    { p0: 3, p1: 7, size: 12, lum: 0.5 },
+    { p0: 1, p1: 3, size: 24, lum: 0.5 },
+    { p0: 1, p1: 0, size: 60, lum: 0.5, disk: 1 },
+    { p0: 5, p1: 9, size: 16, lum: 0.5 },
+    { p0: 2, p1: 5, size: 32, lum: 0.5 },
+    { p0: 1, p1: 2, size: 50, lum: 1 },
+    { p0: 6, p1: 10, size: 16, lum: 1.5 },
+    { p0: 2, p1: 6, size: 32, lum: 1.5 },
+    { p0: 4, p1: 8, size: 12, lum: 1.5 },
+    { p0: 1, p1: 4, size: 24, lum: 1.5 }
     ]
   };
   // ---- instanciate robots ----
@@ -447,8 +447,8 @@ canvas {
         (i + 2) * canvas.width / 9,
         canvas.height * ground - 300,
         struct
-      )
-    );
+        )
+      );
   }
   run();
 }

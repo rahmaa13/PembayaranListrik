@@ -88,7 +88,7 @@
                                     <img style="width:75px; height:75px; background-color: #00a7d0" src="/uploads/avatar/defaults.jpg" class="img-circle" alt="User Image" />
                                     <p>
                                         {{ Auth::user()->name }}
-                                            <small>{{Auth::user()->akses}} sejak {{ Auth::user()->created_at }}</small>
+                                        <small>{{Auth::user()->akses}} sejak {{ Auth::user()->created_at }}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -142,129 +142,127 @@
                     <br>
                     <li class="active">
                         <a href="{{url('home')}}"><i class="fa fa-dashboard"></i>Dashboard</a>
-                        </a>
-                    </li>
-                    @if (Auth::user() && Auth::user()->akses == 'Admin')
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-list"></i>
-                            <span>Tarif</span>
-                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                        </a>
-                        <ul class="treeview-menu" style="display: none;">
-                            <li class="treeview">
-                                <a href="#"><i class="fa fa-desktop"></i> Lihat Data
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu" style="display: none;">
-                                    <li><a href="{{url('/tarif')}}"><i class="fa fa-book"></i>Semua Tarif</a></li>
-                                </ul>
-                            </li>
+                    </a>
+                </li>
+                @if (Auth::user() && Auth::user()->akses == 'Admin')
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>Tarif</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-desktop"></i> Lihat Data
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="{{url('/tarif')}}"><i class="fa fa-book"></i>Semua Tarif</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Pelanggan</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-tv"></i>Lihat Data Pelanggan
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="{{url('pelanggan')}}"><i class="fa fa-book"></i>Semua Pelanggan</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{url('pelanggan/add')}}"><i class="fa fa-plus-circle"></i>Tambah Pelanggan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-tags"></i>
+                        <span>Penggunaan</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-tv"></i>Lihat Data Penggunaan
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="{{url('penggunaan')}}"><i class="fa fa-book"></i>Semua Penggunaan</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{url('penggunaan/add')}}"><i class="fa fa-plus-circle"></i>Tambah Penggunaan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-credit-card"></i>
+                        <span>Tagihan</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href=" {{url('/tagihan/add')}} "><i class="fa fa-user-plus"></i> Tambah Tagihan </a></li>
+                        <li><a href=" {{url('/tagihan')}} "><i class="fa fa-user"></i> Lihat Tagihan</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cc-paypal"></i>
+                        <span>Pembayaran</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{url('pembayaran')}}"><i class="fa fa-tv"></i> Lihat Pembayaran</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-user-secret"></i>
+                        <span>User PLO</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{url('user')}}"><i class="fa fa-tv"></i> Lihat User</a></li>
+                        <li><a href="{{url('user/add')}}"><i class="fa fa-user-plus"></i> Tambah User</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{url('allsaran')}}"><i class="fa fa-book"></i> <span>Kritik dan Saran</span></a></li>
+                @endif
+                <li class="header">LABELS</li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
 
-                            <li><a href=" {{url('/tarif/add')}} "><i class="fa fa-plus-square"></i> Tambah Tarif </a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-users"></i>
-                            <span>Pelanggan</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu" style="display: none;">
-                            <li class="treeview">
-                                <a href="#"><i class="fa fa-tv"></i>Lihat Data Pelanggan
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu" style="display: none;">
-                                    <li><a href="{{url('pelanggan')}}"><i class="fa fa-book"></i>Semua Pelanggan</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="{{url('pelanggan/add')}}"><i class="fa fa-plus-circle"></i>Tambah Pelanggan</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-tags"></i>
-                            <span>Penggunaan</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu" style="display: none;">
-                            <li class="treeview">
-                                <a href="#"><i class="fa fa-tv"></i>Lihat Data Penggunaan
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu" style="display: none;">
-                                    <li><a href="{{url('penggunaan')}}"><i class="fa fa-book"></i>Semua Penggunaan</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="{{url('penggunaan/add')}}"><i class="fa fa-plus-circle"></i>Tambah Penggunaan</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-credit-card"></i>
-                            <span>Tagihan</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href=" {{url('/tagihan/add')}} "><i class="fa fa-user-plus"></i> Tambah Tagihan </a></li>
-                            <li><a href=" {{url('/tagihan')}} "><i class="fa fa-user"></i> Lihat Tagihan</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-cc-paypal"></i>
-                            <span>Pembayaran</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{url('pembayaran')}}"><i class="fa fa-tv"></i> Lihat Pembayaran</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-user-secret"></i>
-                            <span>User PLO</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{url('user')}}"><i class="fa fa-tv"></i> Lihat User</a></li>
-                            <li><a href="{{url('user/add')}}"><i class="fa fa-user-plus"></i> Tambah User</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{url('allsaran')}}"><i class="fa fa-book"></i> <span>Kritik dan Saran</span></a></li>
-                    @endif
-                    <li class="header">LABELS</li>
-                </ul>
-            </section>
-            <!-- /.sidebar -->
-        </aside>
-
-        <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
-        <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
-        <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-        <script src="{{asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
+    <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+    <script src="{{asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 
 </body>
 
