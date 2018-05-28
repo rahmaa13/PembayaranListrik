@@ -14,7 +14,7 @@ class UserInterfaceController extends Controller
      public function search(Request $r)
     {
       $query = $r->input('query');
-      $pelanggan = Pelanggan::where('id','like','%'.$query.'%')->first();
+      $pelanggan = Pelanggan::where('nama','like','%'.$query.'%')->first();
       $kode_tarif = Tarif::where('kodetarif',$pelanggan->kodetarif)->first();
       $tagihan = Tagihan::where('id_pelanggan',$pelanggan->id)->get();
       $pembayaran = Pembayaran::where('id_pelanggan',$pelanggan->id)->get();

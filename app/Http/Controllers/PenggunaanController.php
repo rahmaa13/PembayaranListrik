@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Penggunaan;
 use App\Pelanggan;
+use Alert;
 
 class PenggunaanController extends Controller
 {

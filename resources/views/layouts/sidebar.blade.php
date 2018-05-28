@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Monitoring Divisi Umum</title>
+    <title>PLO'7</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href=" {{asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href=" {{asset('bower_components/font-awesome/css/font-awesome.min.css')}} ">
@@ -99,7 +99,7 @@
                                         <a href="{{url('profile')}}" class="btn btn-primary btn-flat" style="border-radius: 3px">Profil</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href=" {{route('logout')}} " class="btn btn-primary btn-flat" style="border-radius: 3px">Keluar</a>
+                                        <a href=" {{url('auth/logout')}} " class="btn btn-primary btn-flat" style="border-radius: 3px">Keluar</a>
                                     </div>
                                 </li>
                             </ul>

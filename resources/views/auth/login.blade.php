@@ -3,14 +3,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-
-
-
-
-
-
-
-
           <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Cek Tagihan Bulanan PLO</div>
@@ -20,10 +12,10 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">ID Pelanggan</label>
+                            <label for="email" class="col-md-4 control-label">Nama Pelanggan</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="query" placeholder="Masukan ID Pelanggan" id="cari">
+                                <input type="text" class="form-control" name="query" placeholder="Masukan ID Pelanggan" id="cari" required>
                                 <input type="hidden" name="search" value="1">
                                 <br>
                                 

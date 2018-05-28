@@ -11,13 +11,13 @@
 |
 */
 Auth::routes();
+Route::get('auth/logout', 'Auth\LoginController@logout');
 
 Route::get('/','HomeController@welcome');
-
-
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'tarif'] , function(){
+Route::middleware(['admin'], 'auth')->group(function() {
+	Route::group(['prefix' => 'tarif'] , function(){
 
 	Route::get('' , 'TarifController@index');
 	Route::get('add','TarifController@add');
@@ -26,10 +26,10 @@ Route::group(['prefix' => 'tarif'] , function(){
 	Route::post('update','TarifController@update');
 	Route::get('delete/{id}','TarifController@delete');
 
-Route::get('downloadExcel/{type}', 'TarifController@downloadExcel');
+	Route::get('downloadExcel/{type}', 'TarifController@downloadExcel');
 
-Route::post('importExcel', 'TarifController@importExcel');
-});
+	Route::post('importExcel', 'TarifController@importExcel');
+	});
 
 Route::group(['prefix' => 'user'] , function(){
 
@@ -80,4 +80,5 @@ Route::group(['prefix' => 'pelanggan'] , function(){
 Route::group(['prefix' => 'search'] , function(){
 
 	Route::get('pelanggan' , 'UserInterfaceController@search');
+});
 });

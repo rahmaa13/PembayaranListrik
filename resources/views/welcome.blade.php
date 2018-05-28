@@ -74,6 +74,8 @@
           </div>
           @if(Auth::user() && Auth::user()->akses == 'Admin')
           <a href="{{url('pelanggan')}}" class="small-box-footer">Informasi Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+          @else
+          <a href="#plo" class="small-box-footer">Informasi Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
           @endif
         </div>
       </div>

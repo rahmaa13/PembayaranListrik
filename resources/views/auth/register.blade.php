@@ -7,11 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-<<<<<<< HEAD
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-=======
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
->>>>>>> f102d08e5b304ea984d8376c8c0e18770eb323a2
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -78,7 +75,3 @@
     </div>
 </div>
 @endsection
-<<<<<<< HEAD
-=======
-
->>>>>>> f102d08e5b304ea984d8376c8c0e18770eb323a2
