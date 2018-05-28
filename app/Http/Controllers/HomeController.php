@@ -23,6 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
+    //  public function pagenotfound()
+    //  {
+    //      return view('503');
+    // }
     public function welcome(){
         $total = \App\Tagihan::count();
         $lunas = \App\Tagihan::where('status', 2)->count();

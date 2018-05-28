@@ -166,6 +166,8 @@ return [
 
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -230,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+
 
     ],
 

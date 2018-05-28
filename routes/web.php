@@ -11,6 +11,10 @@
 |
 */
 Auth::routes();
+Route::get('robot', function(){
+	return view('503');
+});
+// Route::get('pagenotfound', ['as' => 'notfound', 'uses' => 'HomeController@pagenotfound']);
 Route::get('auth/logout', 'Auth\LoginController@logout');
 
 Route::get('/','HomeController@welcome');
