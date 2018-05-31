@@ -5,6 +5,10 @@
 </head>
 <body>
 	<!-- start Div Modal -->
+	<?php 
+    	$_requestUrl = basename($_SERVER['REQUEST_URI']);
+	 ?>
+	 @if($_requestUrl == "tarif")
 	<div class="modal fade in" id="modal-addTarif" style="padding-right: 15px;">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -15,7 +19,6 @@
 					</div>
 					<div class="modal-body">
 						<form method="POST" action="{{url('tarif/save')}}">
-							
 							<div class="form-group">
 								<label for="kodetarif">Kode Tarif</label>
 								<input id="kodetarif" type="number" 
@@ -47,6 +50,7 @@
 		<!-- End Div Modal -->
 
 		<!-- start Div Modal -->
+		@elseif($_requestUrl == "pelanggan")
 		<div class="modal fade in" id="modal-addPelanggan" style="padding-right: 15px;">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -98,6 +102,7 @@
 			<!-- End Div Modal -->
 
 			<!-- start Div Modal -->
+			@elseif($_requestUrl == "penggunaan")
 			<div class="modal fade in" id="modal-addPenggunaan" style="padding-right: 15px;">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -172,6 +177,7 @@
 			<!-- End Div Modal -->
 
 			<!-- start Div Modal -->
+			@elseif($_requestUrl == "tagihan")
 			<div class="modal fade in" id="modal-addTagihan" style="padding-right: 15px;">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -234,5 +240,6 @@
 				</div>
 			</div>
 			<!-- End Div Modal -->
+			@endif
 		</body>
 		</html>

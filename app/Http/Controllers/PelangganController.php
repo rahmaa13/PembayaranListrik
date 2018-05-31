@@ -12,12 +12,10 @@ class PelangganController extends Controller
 {
     public function index(){
     	$pel = Pelanggan::paginate(10);
-        $pelanggan = Pelanggan::all();
         $gettarif = Tarif::all();
     	return view('pelanggan.index')->with([
             'pel' => $pel,
-            'tarif' => $gettarif,
-            'pelanggan' => $pelanggan
+            'tarif' => $gettarif
         ]);
     }
     

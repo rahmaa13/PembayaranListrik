@@ -17,8 +17,10 @@ Route::get('robot', function(){
 // Route::get('pagenotfound', ['as' => 'notfound', 'uses' => 'HomeController@pagenotfound']);
 Route::get('auth/logout', 'Auth\LoginController@logout');
 
-Route::get('/','HomeController@welcome');
-Route::get('/home', 'HomeController@index');
+Route::get('/', function() {
+	return view('home');
+});
+Route::get('/home', 'HomeController@welcome');
 
 Route::middleware(['admin'], 'auth')->group(function() {
 	Route::group(['prefix' => 'tarif'] , function(){
@@ -78,9 +80,10 @@ Route::middleware(['admin'], 'auth')->group(function() {
 		Route::post('update','TagihanPLOController@update');
 		Route::get('delete/{id}','TagihanPLOController@delete');
 	});
-
-	Route::group(['prefix' => 'search'] , function(){
-
-		Route::get('pelanggan' , 'UserInterfaceController@search');
-	});
 });
+
+Route::group(['prefix' => 'search'] , function(){
+
+	Route::get('pelanggan' , 'UserInterfaceController@search');
+});
+Route::post('saran/save', 'HomeController@saveSaran')->name('saveSaran');

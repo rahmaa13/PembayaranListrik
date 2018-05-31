@@ -21,9 +21,9 @@
             <!-- Logo -->
             <a href="/" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>DV</b>U</span>
+                <span class="logo-mini"><b>LS</b>T</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Divisi</b>Umum</span>
+                <span class="logo-lg"><b>Lara</b>Strik</span>
             </a>
 
             <!-- Header Navbar: style can be found in header.less -->
@@ -183,9 +183,6 @@
                                 <li><a href="{{url('pelanggan')}}"><i class="fa fa-book"></i>Semua Pelanggan</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="{{url('pelanggan/add')}}"><i class="fa fa-plus-circle"></i>Tambah Pelanggan</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -207,9 +204,6 @@
                                 <li><a href="{{url('penggunaan')}}"><i class="fa fa-book"></i>Semua Penggunaan</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="{{url('penggunaan/add')}}"><i class="fa fa-plus-circle"></i>Tambah Penggunaan</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -221,7 +215,6 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href=" {{url('/tagihan/add')}} "><i class="fa fa-user-plus"></i> Tambah Tagihan </a></li>
                         <li><a href=" {{url('/tagihan')}} "><i class="fa fa-user"></i> Lihat Tagihan</a></li>
                     </ul>
                 </li>

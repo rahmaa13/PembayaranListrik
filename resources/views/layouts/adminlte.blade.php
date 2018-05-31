@@ -24,4 +24,4 @@
 	<script type="text/javascript" src="{{asset('js/datatable/dataTables.bootstrap.min.js')}}"></script>
 	<script src="{{asset('sweetalert/sweetalert.min.js')}}"></script>
 	@include('sweet::alert')
-	@include('modals')
+	@include('modalsAdd')

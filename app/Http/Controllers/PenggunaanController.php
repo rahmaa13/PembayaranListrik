@@ -13,8 +13,7 @@ class PenggunaanController extends Controller
    public function index(){
 		$penggunaan  = Penggunaan::all();
 		$pelanggan  = Pelanggan::all();
-		$getTarif = Tarif::all();
-		return view('penggunaan.index', ['penggunaan' => $penggunaan, 'pelanggan' => $pelanggan, 'tarif' => $getTarif]);
+		return view('penggunaan.index', ['penggunaan' => $penggunaan, 'pelanggan' => $pelanggan]);
 	}
 	
 	public function save(Request $r)

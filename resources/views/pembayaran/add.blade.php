@@ -43,7 +43,7 @@ Pembayaran Add
       <label for="biayaadmin">Biaya Admin</label>
       <input id="biayaadmin" type="text" 
       class="form-control" name="biayaadmin" required="Harap Masukan" oninvalid="this.setCustomValidity('Tolong Isi Biaya Admin')"
-      oninput="setCustomValidity('')" value="{{$tarif}}">
+      oninput="setCustomValidity('')" value="5000">
     </div>
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <center>

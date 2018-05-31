@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\User;
+use \App\Saran;
 use Alert;
 
 class HomeController extends Controller
@@ -91,5 +92,17 @@ class HomeController extends Controller
 
         Alert::success('Berhasil menghapus data User.', 'Success!');
         return redirect(url('user'));
+    }
+
+    public function saveSaran(Request $r) {
+        dd($r->input('name'));
+        $new = new Saran;
+        $id = Auth::user() && Auth::user()->id;
+        $new->user_id = $id;
+        $new->email = $r->input('email');
+        $new->phone = $r->input('phone');
+        $new->message = $r->input('message');
+
+        $new->save();
     }
 }
